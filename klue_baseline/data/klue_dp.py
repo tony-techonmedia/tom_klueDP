@@ -102,7 +102,7 @@ class KlueDPDataModule(pl.LightningDataModule):
             batch_size=batch_size,
             shuffle=shuffle,
             collate_fn=self.processor.collate_fn,
-        )
+            num_workers=self.hparams.num_workers)
 
     @overrides
     def train_dataloader(self) -> DataLoader:
@@ -227,6 +227,10 @@ class KlueDPProcessor(DataProcessor):
                 pos_ids = [-1]  # --> CLS token
 
                 for token, head, dep, pos in zip(token_list, head_list, dep_list, pos_list):
+                    if pos == '':
+                        print(token_list)
+                        print(head_list)
+                        print(pos_list)
                     bpe_len = len(tokenizer.tokenize(token))
                     head_token_mask = [1] + [0] * (bpe_len - 1)
                     tail_token_mask = [0] * (bpe_len - 1) + [1]
@@ -551,7 +555,7 @@ def get_pos_labels() -> List[str]:
         "VX",
         "VCP",
         "VCN",
-        "MMA",
+        "MM",
         "MMD",
         "MMN",
         "MAG",
