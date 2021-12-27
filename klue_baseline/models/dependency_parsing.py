@@ -312,6 +312,9 @@ class DPTransformer(BaseTransformer):
         for batch_id in range(batch_size):
             head_ids = [i for i, token in enumerate(bpe_head_mask[batch_id]) if token == 1]
             tail_ids = [i for i, token in enumerate(bpe_tail_mask[batch_id]) if token == 1]
+            if len(head_ids) != len(tail_ids):
+                print(head_ids)
+                print(tail_ids)
             assert len(head_ids) == len(tail_ids)
 
             word_outputs[batch_id][0] = torch.cat(
