@@ -1,4 +1,4 @@
-# KLUE Baseline
+# Dependency Parser from KLUE Baseline
 
 KLUE Baseline 내 DP 모델을 활용하여 데이터를 인입하여 추론하는 모듈입니다.
 
