@@ -1,8 +1,7 @@
 # KLUE Baseline
 
-[Korean(한국어)](README_ko.md)
-
-`KLUE-baseline` contains the baseline code for the [Korean Language Understanding Evaluation](https://klue-benchmark.com/) (KLUE) benchmark. See [our paper](https://arxiv.org/pdf/2105.09680.pdf) for more details about KLUE and the baselines.
+KLUE Baseline 내 DP 모델을 활용하여 데이터를 인입하여 추론하는 모듈을 개발하였습니다.
+기존 klue 데이터 양식에 맞춰 [데이터](data/03_pos.tsv)를 준비하면(더미태깅 포함) [스크립트](main_tom.ipynb)를 통해 모델이 추론한 [결과](03_DP.tsv)로 반환합니다.
 
 ## Dependencies
 
@@ -14,23 +13,8 @@ pip install -r requirements.txt
 
 All expereiments are tested under Python 3.7 environment.
 
-## KLUE Benchmark Datasets
-
-All train/dev sets of KLUE tasks are publicly available in [this repo](https://github.com/KLUE-benchmark/KLUE). You can access them by using git submodules. To clone the repo with datasets:
-```
-git clone --recursive https://github.com/KLUE-benchmark/KLUE-Baseline.git
-```
-or just download datasets after cloned this repo:
-```
-git submodule update --init --recursive
-```
-
-All test sets are not publicly available. To measure performance of your model on test set, you should first train your model on train set and submit the model to [our submission system](http://klue-benchmark.com/). Alternatively, you can compare dev set performances with our baseline models. They are also reported in [our paper](https://arxiv.org/pdf/2105.09680.pdf).
 
 
-## Train
-
-To reproduce our baselines, run `run_all.sh`. 
 
 ## Reference
 
